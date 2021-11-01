@@ -5,28 +5,18 @@
 // Если переданное число меньше единицы, то вывести в консоль  NaN. иначе вывести наименьший делитель числа. 
 
 
-const inputEl = document.querySelector(".input")
-const btnEl = document.querySelector("#btn")
+const num = prompt("Enter any number, please");
 
-btnEl.addEventListener("click", checkNumber)
+if (!num || !num.trim() || typeof (+num) !== "number" || isNaN(+num)) console.log("Entered incorrect data");
+if (+num <= 1) console.log("NaN");
 
-function checkNumber() {
-	for (let j = 2; j != 1; j++) {
-		if (inputEl.value % j === 0 && inputEl.value != 0) {
-			console.log(j);
-			break
-		} else {
-			if (inputEl.value < 1) {
-				console.log('NaN')
-				break
-			} else if (inputEl.value == 1) {
-				console.log(inputEl.value)
-				break
-			}
-			else {
-				continue
-			}
-		}
+for (let i = 2; i <= num; i++) {
+	if ((num % i == 0) && i != num) {
+		console.log(i)
+		break
+	} else if ((num % i == 0) && i == num) {
+		console.log(`${i} - "is a prime number"`);
+	} else {
+		continue
 	}
-	inputEl.value = ""
 }
