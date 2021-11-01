@@ -16,7 +16,5 @@ for (let i = 2; i <= num; i++) {
 		break
 	} else if ((num % i == 0) && i == num) {
 		console.log(`${i} - "is a prime number"`);
-	} else {
-		continue
 	}
 }
